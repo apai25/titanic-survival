@@ -10,8 +10,8 @@ def test_classifier(which_classifier, x_train, y_train, x_test, y_test):
         classifiers = {
         'Logistic Regression': LogisticRegression(max_iter=10000), 
         'K Neighbors': KNeighborsClassifier(p=2, metric='minkowski', n_neighbors=5),
-        'Decision Tree': DecisionTreeClassifier(criterion='entropy', random_state=0, min_samples_split=5),
-        'Random Forest': RandomForestClassifier(criterion='entropy', n_estimators=300, random_state=0, min_samples_split=5),
+        'Decision Tree': DecisionTreeClassifier(criterion='entropy', random_state=0, min_samples_split=5, min_samples_leaf=2),
+        'Random Forest': RandomForestClassifier(criterion='entropy', n_estimators=300, random_state=0, min_samples_split=5, min_samples_leaf=2),
         'Linear SVM': SVC(kernel='linear', random_state=0),
         'RBF SVM': SVC(kernel='rbf', random_state=0),
         'Naive Bayes': GaussianNB()
@@ -20,7 +20,7 @@ def test_classifier(which_classifier, x_train, y_train, x_test, y_test):
         try:
                 classifier = classifiers[which_classifier]
         except KeyError:
-                print('Sorry, that classifier is not valid.')
+                print('Sorry, that classifier is not valid. The classifiers you can use are "Logistic Regression", "K Neighbors", "Decision Tree", "Random Forest", "Linear SVM", "RBF SVM", "Naive Bayes"')
         else:
                 classifier.fit(x_train, y_train)
                 predictions = classifier.predict(x_test)

@@ -15,7 +15,7 @@ mean_imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 x_train[:, 2:3] = mean_imputer.fit_transform(x_train[:, 2:3])
 x_train[:, 5:6] = mean_imputer.fit_transform(x_train[:, 5:6])
 
-word_imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value='unknown')
+word_imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
 x_train[:, 6:7] = word_imputer.fit_transform(x_train[:, 6:7])
 
 # OneHotEncoding categorical variables
@@ -31,8 +31,8 @@ sc_x = StandardScaler()
 x_train = sc_x.fit_transform(x_train)
 
 # Creating and training the classifier
-from sklearn.neighbors import KNeighborsClassifier
-classifier = KNeighborsClassifier(n_neighbors=5, p=2, metric='minkowski')
+from sklearn.ensemble import RandomForestClassifier
+classifier = RandomForestClassifier(criterion='entropy', min_samples_split=5, min_samples_leaf=2, n_estimators=300, random_state=0)
 classifier.fit(x_train, y_train)
 
 # =========================================TESTING======================================
