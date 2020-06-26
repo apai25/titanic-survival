@@ -11,7 +11,7 @@ def test_classifier(which_classifier, x_train, y_train, x_test, y_test):
         'Logistic Regression': LogisticRegression(max_iter=10000), 
         'K Neighbors': KNeighborsClassifier(p=2, metric='minkowski', n_neighbors=5),
         'Decision Tree': DecisionTreeClassifier(criterion='entropy', random_state=0, min_samples_split=5, min_samples_leaf=2),
-        'Random Forest': RandomForestClassifier(criterion='entropy', n_estimators=300, random_state=0, min_samples_split=5, min_samples_leaf=2),
+        'Random Forest': RandomForestClassifier(criterion='gini', n_estimators=300, random_state=0, min_samples_split=4, min_samples_leaf=2),
         'Linear SVM': SVC(kernel='linear', random_state=0),
         'RBF SVM': SVC(kernel='rbf', random_state=0),
         'Naive Bayes': GaussianNB()

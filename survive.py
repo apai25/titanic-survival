@@ -32,7 +32,7 @@ x_train = sc_x.fit_transform(x_train)
 
 # Creating and training the classifier
 from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(criterion='entropy', min_samples_split=5, min_samples_leaf=2, n_estimators=300, random_state=0)
+classifier = RandomForestClassifier(criterion='gini', min_samples_leaf=2, min_samples_split=4, n_estimators=300, random_state=0)
 classifier.fit(x_train, y_train)
 
 # =========================================TESTING======================================
