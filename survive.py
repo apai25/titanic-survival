@@ -31,8 +31,8 @@ sc_x = StandardScaler()
 x_train = sc_x.fit_transform(x_train)
 
 # Creating and training the classifier
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(criterion='gini', min_samples_leaf=2, min_samples_split=4, n_estimators=300, random_state=0)
+from sklearn.svm import SVC
+classifier = SVC(kernel='rbf')
 classifier.fit(x_train, y_train)
 
 # =========================================TESTING======================================

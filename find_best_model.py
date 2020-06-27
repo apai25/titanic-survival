@@ -10,7 +10,7 @@ y = dataset.iloc[:, 1].values
 
 # Creating training and test sets
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25, random_state=42)
 
 # Cleaning X by imputing missing values with either mean(for floats) or fill_value(for strings)
 from sklearn.impute import SimpleImputer
@@ -42,4 +42,4 @@ x_test = sc_x.transform(x_test)
 
 # Creating, training, and predicting with the classifier
 from test_models import test_classifier
-test_classifier('Random Forest', x_train, y_train, x_test, y_test)
+test_classifier('RBF SVM', x_train, y_train, x_test, y_test)
