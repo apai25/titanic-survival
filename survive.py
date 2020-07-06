@@ -15,7 +15,7 @@ x_train = train.iloc[:, [2, 4, 5, 9, 11]].values
 y_train = train.iloc[:, 1].values
 
 # Concatenating x_train and train_family_size
-x_test = np.concatenate((x_train, train_family_size), axis=1)
+x_train = np.concatenate((x_train, train_family_size), axis=1)
 
 # Cleaning x_train by imputing missing values with either mean(for floats) or fill_value(for strings)
 from sklearn.impute import SimpleImputer
