@@ -6,7 +6,7 @@ import pandas as pd
 train = pd.read_csv('train.csv')
 
 # Creating family_size array by adding SibSp and Parch
-train_family_size = train['SibSp'] + train['Parch']
+train_family_size = train['SibSp'] + train['Parch'] + 1
 train_family_size = np.array(train_family_size, dtype=int)
 train_family_size = train_family_size.reshape(len(train_family_size), 1)
 
@@ -48,7 +48,7 @@ classifier.fit(x_train, y_train)
 test = pd.read_csv('test.csv')
 
 # Creating family_size array by adding SibSp and Parch
-test_family_size = test['SibSp'] + test['Parch']
+test_family_size = test['SibSp'] + test['Parch'] + 1
 test_family_size = np.array(test_family_size, dtype=int)
 test_family_size = test_family_size.reshape(len(test_family_size), 1)
 

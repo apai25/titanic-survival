@@ -9,7 +9,7 @@ x = dataset.iloc[:, [2, 4, 5, 9, 11]].values
 y = dataset.iloc[:, 1].values
 
 # Creating family_size array by adding SibSp and Parch
-family_size = dataset['SibSp'] + dataset['Parch']
+family_size = dataset['SibSp'] + dataset['Parch'] + 1
 family_size = np.array(family_size, dtype=int)
 family_size = family_size.reshape(len(family_size), 1)
 
