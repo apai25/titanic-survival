@@ -19,9 +19,11 @@ x_train = np.concatenate((x_train, train_family_size), axis=1)
 
 # Cleaning x_train by imputing missing values with either mean(for floats) or fill_value(for strings)
 from sklearn.impute import SimpleImputer
-mean_imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-x_train[:, 2:3] = mean_imputer.fit_transform(x_train[:, 2:3])
-x_train[:, 3:4] = mean_imputer.fit_transform(x_train[:, 3:4])
+mean_age = SimpleImputer(missing_values=np.nan, strategy='mean')
+x_train[:, 2:3] = mean_age.fit_transform(x_train[:, 2:3])
+
+mean_fare = SimpleImputer(missing_values=np.nan, strategy='mean')
+x_train[:, 3:4] = mean_fare.fit_transform(x_train[:, 3:4])
 
 word_imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
 x_train[:, 4:5] = word_imputer.fit_transform(x_train[:, 4:5])
@@ -61,8 +63,8 @@ x_test = np.concatenate((x_test, test_family_size), axis=1)
 
 # Cleaning x_test by imputing missing values with mean(for floats)
 from sklearn.impute import SimpleImputer
-x_test[:, 2:3] = mean_imputer.transform(x_test[:, 2:3])
-x_test[:, 3:4] = mean_imputer.transform(x_test[:, 3:4])
+x_test[:, 2:3] = mean_age.transform(x_test[:, 2:3])
+x_test[:, 3:4] = mean_fare.transform(x_test[:, 3:4])
 
 # OneHotEncoding categorical variables
 x_test = ct.transform(x_test)
