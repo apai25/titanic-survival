@@ -49,5 +49,5 @@ x_train = sc_x.fit_transform(x_train)
 x_test = sc_x.transform(x_test)
 
 # Creating, training, and predicting with the classifier
-from test_models import test_classifier
+from test_models import test_classifier 
 test_classifier('RBF SVM', x_train, y_train, x_test, y_test)
