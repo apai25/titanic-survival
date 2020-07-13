@@ -62,7 +62,6 @@ ids = test.iloc[:, 0].values
 x_test = np.concatenate((x_test, test_family_size), axis=1)
 
 # Cleaning x_test by imputing missing values with mean(for floats)
-from sklearn.impute import SimpleImputer
 x_test[:, 2:3] = mean_age.transform(x_test[:, 2:3])
 x_test[:, 3:4] = mean_fare.transform(x_test[:, 3:4])
 
