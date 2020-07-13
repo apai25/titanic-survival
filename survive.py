@@ -17,7 +17,7 @@ y_train = train.iloc[:, 1].values
 # Concatenating x_train and train_family_size
 x_train = np.concatenate((x_train, train_family_size), axis=1)
 
-# Cleaning x_train by imputing missing values with either mean(for floats) or fill_value(for strings)
+# Cleaning x_train by imputing missing values with either mean (for floats) or most frequent (for strings)
 from sklearn.impute import SimpleImputer
 mean_age = SimpleImputer(missing_values=np.nan, strategy='mean')
 x_train[:, 2:3] = mean_age.fit_transform(x_train[:, 2:3])

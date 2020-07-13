@@ -20,7 +20,7 @@ x = np.concatenate((x, family_size), axis=1)
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25, random_state=42)
 
-# Cleaning X by imputing missing values with either mean(for floats) or fill_value(for strings)
+# Cleaning X by imputing missing values with either mean (for floats) or fill_value (for strings)
 from sklearn.impute import SimpleImputer
 mean_age = SimpleImputer(missing_values=np.nan, strategy='mean')
 x_train[:, 2:3] = mean_age.fit_transform(x_train[:, 2:3])
