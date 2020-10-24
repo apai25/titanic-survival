@@ -3,7 +3,7 @@ import pandas as pd
 
 # =========================================TRAINING======================================
 # Importing the training dataset
-train = pd.read_csv('train.csv')
+train = pd.read_csv('data/train.csv')
 
 # Creating family_size array by adding SibSp and Parch
 train_family_size = train['SibSp'] + train['Parch'] + 1
@@ -47,7 +47,7 @@ classifier.fit(x_train, y_train)
 
 # =========================================TESTING======================================
 # Importing the testing dataset
-test = pd.read_csv('test.csv')
+test = pd.read_csv('data/test.csv')
 
 # Creating family_size array by adding SibSp and Parch
 test_family_size = test['SibSp'] + test['Parch'] + 1
